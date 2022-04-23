@@ -2,7 +2,7 @@
   "name": "musicplayer",
   "version": "1.0.0",
   "engines": {
-    "node": "16.4.2"
+    "node": "17.5.0"
   },
   "description": "",
   "main": "app.js",
