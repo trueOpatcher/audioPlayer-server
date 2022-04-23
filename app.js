@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 
 const MONGO_URI = process.env.MONGO_URI;
@@ -54,13 +54,7 @@ app.use(express.static(path.join(__dirname, 'views', 'client')));
 app.use(session({ secret: 'secret', resave: false, saveUninitialized: false, store: store }));
 
 
-// app.use((req, res, next) => {
-//     User.findById('61f199bb7258a20dce2e21a6').then(user => {
-//         req.user = user;
-//         next();
-//     }).catch(err => console.log(err));
-//     next();
-// });
+
 
 
 
