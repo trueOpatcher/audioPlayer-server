@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-// const router = express.Router();
 const path = require('path');
 const mongoose = require('mongoose');
 
@@ -42,13 +41,13 @@ app.use(function(req, res, next) {
 
     next();
 });
+
 app.set('view engine', 'pug');
 app.set('views', 'views');
 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'views', 'client')));
 
 app.use(session({ secret: 'secret', resave: false, saveUninitialized: false, store: store }));
