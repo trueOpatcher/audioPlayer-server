@@ -45,14 +45,9 @@ app.use(function(req, res, next) {
 app.set('view engine', 'pug');
 app.set('views', 'views');
 
-app.use('*', function(req, res, next) {
-    if(req.secure) {
-      next();
-    } else {
-        return res.redirect( 301, "https://" + req.headers.host + req.url);
-    }
-})
 
+
+app.enable('trust proxy');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -61,7 +56,13 @@ app.use(express.static(path.join(__dirname, 'views', 'client')));
 app.use(session({ secret: 'secret', resave: false, saveUninitialized: false, store: store }));
 
 
-
+app.use('*', function(req, res, next) {
+    if(req.secure) {
+      next();
+    } else {
+        return res.redirect( 301, "https://" + req.headers.host + req.url);
+    }
+})
 
 
 app.use('/auth', authRoutes);
