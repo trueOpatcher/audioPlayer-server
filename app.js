@@ -8,7 +8,7 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 const PORT = process.env.PORT || 3000;
 
 
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://Maxx:w290982w@cluster0.g4fqe.mongodb.net/musicPlayer?retryWrites=true&w=majority';
 
 const adminRoutes = require('./routes/admin');
 const authRoutes = require('./routes/auth');
@@ -78,7 +78,7 @@ mongoose.connect(MONGO_URI).then(() => {
         app.listen(3000);
     } else {
         app.listen(PORT, () => {
-            console.log('App listening on port: ' + PORT);
+            console.log('Port: ' + PORT);
         });
     }
 
