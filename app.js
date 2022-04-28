@@ -47,7 +47,7 @@ app.set('views', 'views');
 
 
 
-app.enable('trust proxy');
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -55,6 +55,7 @@ app.use(express.static(path.join(__dirname, 'views', 'client')));
 
 app.use(session({ secret: 'secret', resave: false, saveUninitialized: false, store: store }));
 
+app.enable('trust proxy');
 
 app.use('*', function(req, res, next) {
     if(req.secure) {

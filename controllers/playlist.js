@@ -11,9 +11,6 @@ exports.getSharedPlaylist = (req, res, next) => {
 }
 
 exports.getUserPlaylist = (req, res, next) => {
-    if(!req.session.userName) {
-        return res.status(400).send({message: 'User is not authenticated'});
-    }
     const userName = req.session.userName;
 
     Mp3.find({ userName: userName }).then(trackData => {
