@@ -2,7 +2,7 @@
   "name": "musicplayer",
   "version": "1.0.0",
   "engines": {
-    "node": "17.4.0"
+    "node": "16.14.2"
   },
   "description": "",
   "main": "app.js",
@@ -20,7 +20,7 @@
     "mongoose": "^6.2.0",
     "multer": "^1.4.4",
     "music-metadata": "^7.12.2",
-    "node": "^17.4.0",
+    "node": "^16.14.2",
     "nodemon": "^2.0.15",
     "pug": "^3.0.2",
     "realm-web": "^1.5.1"
